@@ -1,0 +1,132 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Mastermind</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Custom Boostrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+<body>
+    <div class="container theme-showcase" role="main">
+
+        <div class="jumbotron">
+            <h1>Mastermind</h1>
+            <p>Try to guess the 4 coloured pegs.</p>
+        </div>
+
+
+        <div class="page-header">
+            <h2>Let's Play</h2>
+        </div>
+
+        <div class="row">
+            <!-- col-md-4 -->
+            <div class="col-md-4">
+                <!-- Pick a colour -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Pick a colour</h3>
+                    </div>
+                    <div class="panel-body">
+                        <a href="javascript:void(0);" class="circle">Black</a>
+                        <a href="javascript:void(0);" class="circle">Blue</a>
+                        <a href="javascript:void(0);" class="circle">Yellow</a>
+                        <div class="clearfix"><!-- --></div>
+                        <a href="javascript:void(0);" class="circle">Green</a>
+                        <a href="javascript:void(0);" class="circle">Red</a>
+                        <a href="javascript:void(0);" class="circle">Orange</a>
+                    </div>
+                </div>
+                <!-- End Pick a colour -->
+
+                <!-- Begin Active Coulor -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Active Coulor</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Black</p>                        
+                    </div>
+                </div>
+                <!-- End Active Coulor -->
+                <!-- Begin Actions -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Actions</h3>
+                    </div>
+                    <div class="panel-body">
+                        
+                        <!-- <button type="button" class="btn btn-primary">Hint</button> -->
+                        <button type="button" class="btn btn-warning">Give Up</button> 
+                        <button type="button" class="btn btn-danger">Quit</button>                      
+                    </div>
+                </div>
+                <!-- End Actions -->
+            </div>
+            <!-- End col-md-4 -->
+
+            <!-- BOARD -->
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Board</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-12">
+                            <table class="table table-bordered table-bordered">
+                                <!-- row rp -->
+                                <tr>                                    
+                                    <td><b>1</b></td>
+                                    <td>A</td>
+                                    <td>B</td>
+                                    <td>C</td>
+                                    <td>D</td>
+                                    <td><!-- --></td>
+                                    <td>Check</td>                                    
+                                </tr>
+                                <!-- end row rp -->
+                            </table>
+                        </div>                        
+                        <div class="clearfix"><!-- --></div>
+                        <button type="button" class="btn btn-success pull-right">Score</button>
+                    </div>
+                </div>
+            </div>
+            <!-- END BOARD -->
+        </div>
+        <!--
+        <div class="page-header">
+        <h1>Alerts</h1>
+        </div>
+        <div class="alert alert-success" role="alert">
+        <strong>Well done!</strong> You successfully read this important alert message.
+        </div>
+        <div class="alert alert-info" role="alert">
+        <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+        </div>
+        <div class="alert alert-warning" role="alert">
+        <strong>Warning!</strong> Best check yo self, you're not looking too good.
+        </div>
+        <div class="alert alert-danger" role="alert">
+        <strong>Oh snap!</strong> Change a few things up and try submitting again.
+        </div> -->
+    </div>
+
+        <!-- JS -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/main.js"></script>
+        <!-- END JS -->
+
+    </body>
+</html>
