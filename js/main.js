@@ -165,14 +165,11 @@ mastermind.PlayMGame = function(){
 		if(!pegs){return};
 		
 		//Computer array
-		var code = settings.randomPegsArray;
-
-		var i, l,
+		var code = settings.randomPegsArray,
+		i, l,
 		foundIndex,
 		exactMatches = 0,
-		valueMatches = 0;
-
-		
+		colorMatches = 0;		
 
 		// First: Look for color & position matches		  
 		for( i = pegs.length - 1 ; i >= 0 ; i-- ) {
@@ -189,18 +186,15 @@ mastermind.PlayMGame = function(){
 		    
 		    foundIndex = code.indexOf(pegs[i]);
 		    if( foundIndex !== -1 ) {
-		      valueMatches++;
+		      colorMatches++;
 		      code.splice(foundIndex, 1);
 		    }
 		}
 
 		return {
 		    exactMatches: exactMatches,
-		    valueMatches: valueMatches
-		};
-
-
-		  
+		    colorMatches: colorMatches
+		};	  
 		
 	};
 
@@ -208,7 +202,7 @@ mastermind.PlayMGame = function(){
 		var results = checkPegs ();
 		console.log(results);
 		$("#row-"+settings.countR+"-exactMatches").html(results.exactMatches);
-		$("#row-"+settings.countR+"-colorMatches").html(results.valueMatches);
+		$("#row-"+settings.countR+"-colorMatches").html(results.colorMatches);
 
 		settings.add();
 	}
