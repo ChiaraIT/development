@@ -52,16 +52,27 @@
                 <!-- Begin Actions -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
+                        <h3 class="panel-title">Score History</h3>
+                    </div>
+                    <div class="panel-body">
+                                              
+                    </div>
+                </div>
+                <!-- End Actions -->
+                <!-- Begin Actions -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Actions</h3>
                     </div>
                     <div class="panel-body">
                         
                         <!-- <button type="button" class="btn btn-primary">Hint</button> -->
-                        <button type="button" class="btn btn-warning">Give Up</button> 
-                        <button type="button" class="btn btn-danger">Quit</button>                      
+                        <button type="button" class="btn btn-warning" id="mastermind-giveupButton">Give Up</button> 
+                        <button type="button" class="btn btn-danger" id="mastermind-giveupButton">New Game</button>                      
                     </div>
                 </div>
                 <!-- End Actions -->
+                
             </div>
             <!-- End col-md-4 -->
 
@@ -76,13 +87,13 @@
                             <table class="table table-bordered table-bordered" id="mastermind-tableBoard">
                                 
                                 <tr>                                    
-                                    <td>Guess #</td>
-                                    <td>Color</td>
-                                    <td>Color</td>
-                                    <td>Color</td>
-                                    <td>Color</td>
-                                    <td>Exact Matches</td>
-                                    <td>Color Matches</td>                                    
+                                    <td align="center" valign="middle"><b>#</b></td>
+                                    <td align="center" valign="middle"><b>Color</b></td>
+                                    <td align="center" valign="middle"><b>Color</b></td>
+                                    <td align="center" valign="middle"><b>Color</b></td>
+                                    <td align="center" valign="middle"><b>Color</b></td>
+                                    <td align="center" valign="middle"><b>Exact Matches</b></td>
+                                    <td align="center" valign="middle"><b>Color Matches</b></td>                                    
                                 </tr>
                                 
                             </table>
@@ -113,8 +124,11 @@
     </div>
 
         <!-- JS -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        -->
+        <script src="js/vendor/jquery-1.11.2.min.js"></script>
+        
         <script src="js/vendor/bootstrap.min.js"></script>
 
         <script src="js/main.js"></script>

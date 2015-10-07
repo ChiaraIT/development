@@ -76,6 +76,21 @@ mastermind.PlayMGame = function(){
 		$( "#mastermind-checkButton" ).on("click", function(){
 			evaluateSolution();
 		});
+
+		// Give up button listener
+		$( "#mastermind-giveupButton" ).on("click", function(){
+			giveup();
+		});
+	};
+
+	//giveup
+	var giveup = function() {
+		alert(settings.randomPegsArray);	
+	};
+
+	//giveup
+	var newgame = function() {
+		init.call(this);	
 	};
 
 	//activeColor
@@ -94,13 +109,13 @@ mastermind.PlayMGame = function(){
 		{
 		
 			html += '<tr id="row-' + (i+1) + '">';
-				html += '<td><b>' + (i+1) + '</b></td>';
-                html += '<td align="center"><div class="empty-circle" id="row-' + (i+1) + '-1"></div></td>';
-                html += '<td align="center"><div class="empty-circle" id="row-' + (i+1) + '-2"></div></td>';
-                html += '<td align="center"><div class="empty-circle" id="row-' + (i+1) + '-3"></div></td>';
-                html += '<td align="center"><div class="empty-circle" id="row-' + (i+1) + '-4"></div></td>';
-                html += '<td align="center" id="row-' + (i+1) + '-exactMatches"></td>';
-                html += '<td align="center" id="row-' + (i+1) + '-colorMatches"></td>';
+				html += '<td align="left" valign="center"><b>' + (i+1) + '</b></td>';
+                html += '<td align="center" valign="middle"><div class="empty-circle" id="row-' + (i+1) + '-1"></div></td>';
+                html += '<td align="center" valign="middle"><div class="empty-circle" id="row-' + (i+1) + '-2"></div></td>';
+                html += '<td align="center" valign="middle"><div class="empty-circle" id="row-' + (i+1) + '-3"></div></td>';
+                html += '<td align="center" valign="middle"><div class="empty-circle" id="row-' + (i+1) + '-4"></div></td>';
+                html += '<td align="center" valign="middle" id="row-' + (i+1) + '-exactMatches"></td>';
+                html += '<td align="center" valign="middle" id="row-' + (i+1) + '-colorMatches"></td>';
             html += '</tr>';
 		}
 
@@ -126,7 +141,7 @@ mastermind.PlayMGame = function(){
 			subj.addClass(settings.activeColor);
 
 		}else{
-			alert("one row at the time!");
+			alert("One row at the time! Finish to compile row number "+settings.countR);
 		}		
 	};
 
@@ -147,7 +162,7 @@ mastermind.PlayMGame = function(){
 		}
 
 		if (userCombinationArray.length < settings.numberOfColorToGuess){
-			alert("Pick another color");
+			alert("Pick a color from Pick a color panel and then click the empty circle you want to color.");
 			return;
 				
 		}
@@ -160,18 +175,24 @@ mastermind.PlayMGame = function(){
 	var checkPegs = function(subj) {
 
 		//User attemps array
-		var pegs = giveGuess();
+		var userPegs = giveGuess();
 
-		if(!pegs){return};
+		if(!userPegs){return};
 		
 		//Computer array
-		var code = settings.randomPegsArray,
-		i, l,
+		var computerPegs = settings.randomPegsArray;
+
+		var i, l,
 		foundIndex,
 		exactMatches = 0,
-		colorMatches = 0;		
+		colorMatches = 0;
 
-		// First: Look for color & position matches		  
+		// copy the arrays, so we don't ruin the orignals
+		var code = computerPegs.slice(0);
+		var pegs = userPegs.slice(0);
+
+		// First: Look for color & position matches
+		  
 		for( i = pegs.length - 1 ; i >= 0 ; i-- ) {
 		    
 		    if(pegs[i] === code[i]) {
@@ -190,19 +211,25 @@ mastermind.PlayMGame = function(){
 		      code.splice(foundIndex, 1);
 		    }
 		}
-
+		
 		return {
 		    exactMatches: exactMatches,
 		    colorMatches: colorMatches
-		};	  
+		};		  
 		
 	};
 
 	var evaluateSolution = function () {
 		var results = checkPegs ();
-		console.log(results);
-		$("#row-"+settings.countR+"-exactMatches").html(results.exactMatches);
-		$("#row-"+settings.countR+"-colorMatches").html(results.colorMatches);
+
+		console.log(settings.randomPegsArray);
+		
+		if(results.exactMatches === 4){
+			alert("you won!!");
+		}else{
+			$("#row-"+settings.countR+"-exactMatches").html(results.exactMatches);
+			$("#row-"+settings.countR+"-colorMatches").html(results.colorMatches);
+		}
 
 		settings.add();
 	}
